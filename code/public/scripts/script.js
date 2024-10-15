@@ -25,19 +25,14 @@ form.addEventListener('submit', function(event) {
     })
     .then(response => response.text())
     .then(data => {
-        // Exibe a resposta do servidor
-        const responseDiv = document.getElementById('response');
-        responseDiv.textContent = data;
-        responseDiv.style.display = 'block';
-
         // Cria o card de Pokémon
         const cardContainer = document.getElementById('pokemonCardContainer');
         const card = document.createElement('div');
         card.classList.add('pokemon-card');
         
-        // Adiciona uma imagem aleatória de Pokémon (ou imagem fixa)
+        // Adiciona uma imagem local de Pokémon
         const pokemonImage = document.createElement('img');
-        pokemonImage.src = './images/pokemon1.png';
+        pokemonImage.src = './images/pokemon1.png'; // Imagem fixa ou aleatória
         
         // Nome e detalhes do Pokémon
         const pokemonName = document.createElement('h2');
@@ -57,8 +52,8 @@ form.addEventListener('submit', function(event) {
         card.appendChild(pokemonName);
         card.appendChild(details);
 
-        // Exibe o card no container
-        cardContainer.innerHTML = '';  // Limpa cards anteriores
+        // Exibe o card no container (limpa cards anteriores)
+        cardContainer.innerHTML = '';
         cardContainer.appendChild(card);
     })
     .catch(error => {
