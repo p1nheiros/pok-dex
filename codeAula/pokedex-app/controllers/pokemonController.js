@@ -13,3 +13,5 @@ const getPokemon = (req, res) => {
         res.status(404).send('Pokémon não encontrado');
     }
 };
+
+module.exports = { getAllPokemons, getPokemon };
